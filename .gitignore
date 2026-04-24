@@ -1,0 +1,11 @@
+data/
+logs/
+models/
+mlruns/
+*.parquet
+*.csv
+*.pkl
+*.joblib
+*.db
+__pycache__/
+.ipynb_checkpoints/
