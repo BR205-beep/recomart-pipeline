@@ -1,0 +1,171 @@
+
+registry_name: recomart_feature_registry
+registry_version: v1
+created_for: recommendation_pipeline
+description: Custom metadata registry for training and inference features
+
+entities:
+  - name: user
+    join_key: user_id
+    description: Unique customer identifier from interaction logs
+
+  - name: item
+    join_key: item_id
+    description: Unique product/item identifier from interaction logs or metadata
+
+feature_sets:
+  - name: user_features
+    entity: user
+    version: v1
+    source_table: interactions_prepared.csv
+    storage_path: data/featured/v1/user_features.parquet
+    serving_modes: [training, inference]
+    features:
+      - name: user_total_interactions
+        dtype: int
+        source_column: user_id
+        transformation: count of all interactions per user
+        freshness: daily
+
+      - name: user_view_count
+        dtype: int
+        source_column: event
+        transformation: count where event == view
+        freshness: daily
+
+      - name: user_addtocart_count
+        dtype: int
+        source_column: event
+        transformation: count where event == addtocart
+        freshness: daily
+
+      - name: user_transaction_count
+        dtype: int
+        source_column: event
+        transformation: count where event == transaction
+        freshness: daily
+
+      - name: user_avg_event_weight
+        dtype: float
+        source_column: event_weight
+        transformation: mean event_weight grouped by user_id
+        freshness: daily
+
+      - name: user_active_days
+        dtype: int
+        source_column: event_date
+        transformation: distinct active dates per user
+        freshness: daily
+
+      - name: user_last_seen_recency_days
+        dtype: float
+        source_column: event_ts
+        transformation: days since most recent interaction
+        freshness: daily
+
+  - name: item_features
+    entity: item
+    version: v1
+    source_table: interactions_prepared.csv + products_prepared.csv
+    storage_path: data/featured/v1/item_features.parquet
+    serving_modes: [training, inference]
+    features:
+      - name: item_total_interactions
+        dtype: int
+        source_column: item_id
+        transformation: count of all interactions per item
+        freshness: daily
+
+      - name: item_view_count
+        dtype: int
+        source_column: event
+        transformation: count where event == view grouped by item_id
+        freshness: daily
+
+      - name: item_addtocart_count
+        dtype: int
+        source_column: event
+        transformation: count where event == addtocart grouped by item_id
+        freshness: daily
+
+      - name: item_transaction_count
+        dtype: int
+        source_column: event
+        transformation: count where event == transaction grouped by item_id
+        freshness: daily
+
+      - name: item_avg_event_weight
+        dtype: float
+        source_column: event_weight
+        transformation: mean event_weight grouped by item_id
+        freshness: daily
+
+      - name: item_popularity_rank
+        dtype: int
+        source_column: item_total_interactions
+        transformation: descending rank by interaction count
+        freshness: daily
+
+      - name: price_norm
+        dtype: float
+        source_column: price_norm
+        transformation: min-max normalized price from product metadata
+        freshness: daily
+
+      - name: rating_norm
+        dtype: float
+        source_column: rating_norm
+        transformation: min-max normalized rating from product metadata
+        freshness: daily
+
+      - name: stock_norm
+        dtype: float
+        source_column: stock_norm
+        transformation: min-max normalized stock from product metadata
+        freshness: daily
+
+      - name: category
+        dtype: string
+        source_column: category
+        transformation: standardized lowercase category label
+        freshness: daily
+
+  - name: interaction_features
+    entity: user
+    version: v1
+    source_table: interactions_prepared.csv
+    storage_path: data/featured/v1/interaction_features.parquet
+    serving_modes: [training]
+    features:
+      - name: user_item_event_weight_sum
+        dtype: float
+        source_column: event_weight
+        transformation: sum event_weight grouped by user_id and item_id
+        freshness: daily
+
+      - name: user_item_interaction_count
+        dtype: int
+        source_column: item_id
+        transformation: count of interactions grouped by user_id and item_id
+        freshness: daily
+
+      - name: user_item_last_event_recency_days
+        dtype: float
+        source_column: event_ts
+        transformation: days since latest interaction for user-item pair
+        freshness: daily
+
+governance:
+  owner: recomart_data_platform
+  lineage:
+    raw_sources:
+      - data/raw/retailrocket/events.csv
+      - data/raw/dummyjson/products_raw.json
+    prepared_sources:
+      - data/prepared/interactions_prepared.csv
+      - data/prepared/products_prepared.csv
+  retrieval_rules:
+    training:
+      include_feature_sets: [user_features, item_features, interaction_features]
+    inference:
+      include_feature_sets: [user_features, item_features]
