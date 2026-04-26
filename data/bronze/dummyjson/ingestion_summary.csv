@@ -1,0 +1,3 @@
+dataset,rows,columns,output_path,source_mode
+products,194,32,C:\Users\barath\recomart-pipeline\data\bronze\dummyjson\products.parquet,api
+categories,24,8,C:\Users\barath\recomart-pipeline\data\bronze\dummyjson\categories.parquet,api

@@ -1,0 +1,6 @@
+dataset,check_type,severity,issue_count,description,file_path
+retailrocket_events,missing_values,warning,2733644,Nulls in transactionid,C:\Users\barath\recomart-pipeline\data\raw\retailrocket\load_date=2026-04-26\load_hour=15\events.csv
+retailrocket_events,duplicates,warning,460,Duplicate rows,C:\Users\barath\recomart-pipeline\data\raw\retailrocket\load_date=2026-04-26\load_hour=15\events.csv
+retailrocket_category_tree,missing_values,warning,25,Nulls in parentid,C:\Users\barath\recomart-pipeline\data\raw\retailrocket\load_date=2026-04-26\load_hour=15\category_tree.csv
+dummyjson_products_raw,missing_values,warning,92,Nulls in brand,C:\Users\barath\recomart-pipeline\data\raw\dummyjson\load_date=2026-04-26\load_hour=15\products_raw.json
+dummyjson_categories_raw,schema,error,1,Missing columns: ['category'],C:\Users\barath\recomart-pipeline\data\raw\dummyjson\load_date=2026-04-26\load_hour=15\categories_raw.json
