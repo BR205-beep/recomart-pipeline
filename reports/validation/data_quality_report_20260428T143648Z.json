@@ -1,0 +1,77 @@
+{
+  "run_id": "20260428T143648Z",
+  "run_ts": "2026-04-28T14:36:48.430525+00:00",
+  "project_root": "C:\\Users\\barath\\recomart-pipeline",
+  "raw_root": "C:\\Users\\barath\\recomart-pipeline\\data\\raw",
+  "discovered_files": {
+    "events_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-28\\load_hour=14\\events.csv",
+    "category_tree_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-26\\load_hour=19\\category_tree.csv",
+    "item_properties_part1_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-28\\load_hour=14\\item_properties_part1.csv",
+    "item_properties_part2_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-28\\load_hour=14\\item_properties_part2.csv",
+    "products_raw_json": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\dummyjson\\load_date=2026-04-28\\load_hour=14\\products_raw.json",
+    "categories_raw_json": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\dummyjson\\load_date=2026-04-28\\load_hour=14\\categories_raw.json",
+    "products_parquet": "C:\\Users\\barath\\recomart-pipeline\\data\\bronze\\dummyjson\\products.parquet",
+    "categories_parquet": "C:\\Users\\barath\\recomart-pipeline\\data\\bronze\\dummyjson\\categories.parquet"
+  },
+  "overall_status": "FAIL",
+  "issues_file": "C:\\Users\\barath\\recomart-pipeline\\reports\\validation\\validation_issues_20260428T143648Z.csv",
+  "summary_file": "C:\\Users\\barath\\recomart-pipeline\\reports\\validation\\validation_summary_20260428T143648Z.csv",
+  "datasets": [
+    {
+      "dataset": "retailrocket_events",
+      "rows": 2756101,
+      "columns": 5,
+      "errors": 0,
+      "warnings": 2734104,
+      "status": "PASS"
+    },
+    {
+      "dataset": "retailrocket_category_tree",
+      "rows": 1669,
+      "columns": 2,
+      "errors": 0,
+      "warnings": 25,
+      "status": "PASS"
+    },
+    {
+      "dataset": "retailrocket_item_properties",
+      "rows": 20275902,
+      "columns": 4,
+      "errors": 0,
+      "warnings": 0,
+      "status": "PASS"
+    },
+    {
+      "dataset": "dummyjson_products_raw",
+      "rows": 194,
+      "columns": 27,
+      "errors": 0,
+      "warnings": 92,
+      "status": "PASS"
+    },
+    {
+      "dataset": "dummyjson_categories_raw",
+      "rows": 24,
+      "columns": 3,
+      "errors": 1,
+      "warnings": 0,
+      "status": "FAIL"
+    },
+    {
+      "dataset": "products_parquet",
+      "rows": 194,
+      "columns": 32,
+      "errors": 0,
+      "warnings": 0,
+      "status": "PASS"
+    },
+    {
+      "dataset": "categories_parquet",
+      "rows": 24,
+      "columns": 8,
+      "errors": 0,
+      "warnings": 0,
+      "status": "PASS"
+    }
+  ]
+}
