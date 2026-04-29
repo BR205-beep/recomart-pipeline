@@ -1,0 +1,13 @@
+{
+  "run_ts": "20260429T072423Z",
+  "kernel_name": "recomart_runner",
+  "python_executable": "C:\\Users\\barath\\recomart-pipeline\\.recomart_venv\\Scripts\\python.exe",
+  "stages": {
+    "ingestion": "success",
+    "validation": "success",
+    "preparation": "success",
+    "transformation": "success",
+    "feature_store": "success",
+    "model_training": "success"
+  }
+}

@@ -7,6 +7,6 @@
   "recall_at_10": 0.12172284722328186,
   "ndcg_at_10": 0.0681703069735919,
   "evaluated_users_at_10": 3204,
-  "explained_variance_ratio_sum": 0.4889718294143677,
-  "runtime_minutes": 0.07653891642888387
+  "explained_variance_ratio_sum": 0.4889717698097229,
+  "runtime_minutes": 0.08895316123962402
 }

@@ -1,4 +1,0 @@
-dataset,rows,columns,errors,warnings,status
-interactions_prepared,2755641,10,0,0,PASS
-products_prepared,194,100,0,0,PASS
-categories_prepared,24,1,0,0,PASS

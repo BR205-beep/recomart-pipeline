@@ -7,5 +7,5 @@
   "recall_at_10": 0.2103620474406991,
   "ndcg_at_10": 0.11530584014233597,
   "evaluated_users_at_10": 3204,
-  "runtime_minutes": 0.11634612480799357
+  "runtime_minutes": 0.09242709477742513
 }

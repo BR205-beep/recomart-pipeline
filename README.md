@@ -261,3 +261,391 @@ ingestion → validation → preparation → transformation → feature store �
 Its main contribution is to convert raw multi-source recommendation data into cleaned, validated, and EDA-documented assets that are ready for downstream feature creation.
 
 ==========================================================================================================
+Feature Engineering and Feature Store
+This module builds recommendation-ready features from the prepared RecoMart datasets and manages them through a lightweight custom feature store.
+It sits between data preparation and model training in the pipeline. Its purpose is to transform cleaned interaction and product data into reusable, versioned feature tables that support both offline training and inference-time retrieval. This directly aligns with the assignment requirements for feature engineering, feature storage, metadata documentation, and versioned feature access .
+
+Overview
+RecoMart’s recommendation pipeline requires features that can support both:
+
+Collaborative filtering models such as SVD and item-based collaborative filtering
+Content-based recommenders using product attributes and text-derived signals
+
+This layer converts prepared datasets into stable, joinable features for those use cases. The prepared inputs currently include:
+
+interactions_prepared.csv
+products_prepared.csv
+categories_prepared.csv
+retailrocket_item_snapshot.csv
+
+The preparation stage validates these outputs and reports them as passing, with approximately:
+
+2,755,641 interaction rows
+194 product rows
+24 category rows
+
+
+Objectives
+This module fulfills two assignment sections:
+1. Feature Engineering and Transformation
+Create features suitable for recommendation algorithms, including:
+
+user activity frequency
+user/item aggregate engagement signals
+co-occurrence and similarity-friendly features
+content attributes for item representation
+
+The assignment explicitly calls for transformation scripts, structured transformed outputs, and a summary of feature logic .
+2. Feature Store
+Implement a simple feature store using a custom metadata registry, including:
+
+documented feature names
+source datasets and columns
+transformation logic
+versioned retrieval for training and inference
+
+These are direct feature store deliverables in the assignment .
+
+Inputs
+This layer consumes prepared data produced by the data preparation stage.
+Primary input files
+
+data/prepared/interactions_prepared.csv
+data/prepared/products_prepared.csv
+data/prepared/categories_prepared.csv
+data/prepared/retailrocket_item_snapshot.csv
+
+Expected prepared schemas
+The preparation notebook validates key interaction fields such as:
+
+user_id
+item_id
+event
+event_weight
+event_ts
+
+The product preparation flow also expects product metadata such as:
+
+id
+title
+category
+price
+optional brand
+
+
+What This Module Produces
+This layer generates structured feature outputs for downstream recommendation models.
+Typical outputs
+
+data/features/<version>/user_features.csv
+data/features/<version>/item_features.csv
+data/features/<version>/interaction_features.csv
+data/features/<version>/content_features.csv
+data/features/<version>/feature_registry.json
+data/features/<version>/feature_build_summary.json
+
+These outputs provide a reusable feature layer for both experimentation and reproducible pipeline runs.
+
+Recommended Repository Structure
+A clean layout for this layer is:
+
+src/features/
+
+build_features.py
+feature_logic.py
+feature_registry.py
+README.md
+
+
+data/prepared/
+
+prepared inputs from EDA/prep
+
+
+data/features/
+
+versioned feature outputs
+
+
+reports/
+
+feature summaries and diagnostics
+
+
+
+This structure also supports the assignment expectation of organized pipeline stages and clear documentation .
+
+Feature Groups
+User Features
+User-level features summarize engagement behavior and preference intensity.
+Examples:
+
+
+user_interaction_count
+Total number of interactions for a user
+
+
+user_unique_items
+Number of distinct items the user interacted with
+
+
+user_avg_event_weight
+Average weighted engagement score across the user’s interactions
+
+
+user_transaction_count
+Number of purchase events for the user
+
+
+user_view_count
+Number of view events
+
+
+user_addtocart_count
+Number of add-to-cart events
+
+
+user_activity_frequency
+Interaction rate over time
+
+
+user_last_activity_ts
+Most recent interaction timestamp
+
+
+Item Features
+Item-level features summarize popularity and engagement quality.
+Examples:
+
+
+item_interaction_count
+Total interactions received by an item
+
+
+item_unique_users
+Number of unique users who interacted with the item
+
+
+item_avg_event_weight
+Mean weighted interaction score for the item
+
+
+item_transaction_count
+Number of transaction events
+
+
+item_addtocart_count
+Number of add-to-cart events
+
+
+item_view_count
+Number of view events
+
+
+item_popularity_rank
+Rank based on weighted engagement volume
+
+
+Interaction Features
+Interaction-level features preserve user-item behavior needed by collaborative models.
+Examples:
+
+user_id
+item_id
+event
+event_weight
+event_ts
+event_date
+repeat_interaction_flag
+interaction_recency_days
+
+Content Features
+Content features support item similarity and content-based recommendation.
+Examples:
+
+product_id
+title
+category
+brand
+price
+price_bucket
+content_text_combined
+
+The product preparation logic shows title, category, price, and optional brand as key fields for item representation .
+
+Feature Engineering Logic
+The feature logic follows a few practical rules:
+
+
+Aggregate interaction logs into stable user and item summaries
+Behavioral events are grouped by user and item to produce recommendation-ready signals.
+
+
+Preserve entity keys for safe joins
+user_id and item_id remain the primary join keys across feature tables.
+
+
+Use weighted behavioral signals
+The prepared interaction dataset includes event_weight, enabling different event types to contribute differently to model inputs .
+
+
+Create content-based item representations
+Product text and categorical fields are combined into a content profile for similarity-based recommenders.
+
+
+Version every feature build
+Each feature run is stored in a separate versioned folder for reproducibility and lineage.
+
+
+
+Feature Store Design
+This project uses a custom lightweight feature store rather than Feast.
+Why a custom feature store?
+A custom registry is enough for this assignment because it:
+
+keeps the implementation simple
+satisfies the metadata documentation requirement
+supports feature versioning
+enables repeatable training/inference retrieval
+is easier to explain in a course demo
+
+The assignment explicitly allows a custom metadata registry as a valid feature store implementation .
+Core components
+1. Feature tables
+Entity-level feature files stored as versioned datasets.
+2. Metadata registry
+A JSON registry that documents feature definitions.
+3. Retrieval interface
+Utility functions that load a specified feature version for:
+
+model training
+batch scoring
+user/item lookup during inference
+
+
+Feature Registry Schema
+Each registered feature should include metadata such as:
+
+feature_name
+entity
+description
+source_table
+source_columns
+transformation
+data_type
+version
+used_for_training
+used_for_inference
+
+Example registry entries
+
+
+user_interaction_count
+Count of interactions grouped by user_id
+
+
+item_popularity_rank
+Rank of items by weighted interaction volume
+
+
+price_bucket
+Bucketized form of product price
+
+
+content_text_combined
+Concatenation of product text fields for content-based modeling
+
+
+This metadata directly supports the assignment requirement to document feature names, sources, and transformations .
+
+Versioning Strategy
+Feature outputs are stored by version.
+Example
+data/features/v1_2026_04_29/
+Each version should capture:
+
+feature build timestamp
+source input references
+transformation logic version
+output file paths
+
+This supports lineage, reproducibility, and consistent train/serve behavior. It also aligns with the assignment’s broader emphasis on data versioning and transformation traceability .
+
+Retrieval Modes
+Training retrieval
+Used when building recommendation models.
+Typical flow:
+
+load a specific feature version
+join user, item, and interaction features
+generate the model training matrix
+log the version used in MLflow or run metadata
+
+Inference retrieval
+Used when generating recommendations for a user or item.
+Typical flow:
+
+load the requested or latest feature version
+fetch features for the target entity
+apply the same feature logic used during training
+avoid training-serving mismatch
+
+The assignment specifically calls for versioned retrieval for both training and inference .
+
+Fit Within the End-to-End Pipeline
+This layer appears after preparation and before model training:
+ingestion → raw storage → validation → preparation → feature engineering → feature store → model training → evaluation → orchestration
+That sequence mirrors the assignment pipeline expectations for the recommendation system workflow .
+
+Model Support
+These features are intended to support three recommendation approaches in the project:
+SVD
+Uses interaction-level and aggregate user/item signals for collaborative filtering.
+Item-Based Collaborative Filtering
+Uses item interaction statistics, co-occurrence-friendly data, and popularity signals.
+Content-Based Recommendation
+Uses product metadata such as title, category, brand, and price-derived features for item similarity.
+This is consistent with the assignment requirement to train collaborative and content-based recommendation models and evaluate them using ranking metrics .
+
+Data Notes and Constraints
+A practical note from the prepared data: the current prepared outputs contain a very large interaction table but a much smaller product table, with about 2.76M interactions versus 194 prepared products . That matters for content-based recommendation because model coverage depends on overlap between interaction items and items available in the product catalog.
+Implication:
+
+collaborative models may have broader behavior coverage
+content-based models may require overlap filtering or richer item metadata coverage
+
+That is not a flaw in the feature layer, but it is an important design constraint to document.
+
+Deliverables Covered
+This module supports the following assignment deliverables:
+Feature Engineering and Transformation
+
+transformation scripts
+recommendation-ready features
+structured transformed outputs
+summary of feature logic
+
+Feature Store
+
+custom feature store implementation
+feature metadata documentation
+versioned retrieval design
+sample training/inference retrieval support
+
+
+Strengths
+
+simple and modular
+easy to demo and explain
+reproducible through versioned outputs
+supports both collaborative and content-based pipelines
+fits the assignment scope without unnecessary platform overhead
+
+
+Limitations
+
+custom registry is lighter than production-grade tools like Feast
+online serving is simulated rather than deployed
+feature freshness depends on rebuild cadence
+content-based coverage depends on available product metadata overlap
+

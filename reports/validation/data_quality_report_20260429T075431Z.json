@@ -1,0 +1,178 @@
+{
+  "run_id": "20260429T075431Z",
+  "run_ts": "2026-04-29T07:54:31.997715+00:00",
+  "project_root": "C:\\Users\\barath\\recomart-pipeline",
+  "initial_validation": {
+    "run_id": "20260429T075431Z",
+    "run_ts": "2026-04-29T07:54:31.997715+00:00",
+    "phase": "initial",
+    "project_root": "C:\\Users\\barath\\recomart-pipeline",
+    "raw_root": "C:\\Users\\barath\\recomart-pipeline\\data\\raw",
+    "bronze_root": "C:\\Users\\barath\\recomart-pipeline\\data\\bronze",
+    "discovered_files": {
+      "events_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=06\\events.csv",
+      "category_tree_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-26\\load_hour=19\\category_tree.csv",
+      "item_properties_part1_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=06\\item_properties_part1.csv",
+      "item_properties_part2_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=06\\item_properties_part2.csv",
+      "products_raw_json": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\dummyjson\\load_date=2026-04-29\\load_hour=07\\products_raw.json",
+      "categories_raw_json": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\dummyjson\\load_date=2026-04-29\\load_hour=07\\categories_raw.json",
+      "products_parquet": "C:\\Users\\barath\\recomart-pipeline\\data\\bronze\\dummyjson\\products.parquet",
+      "categories_parquet": "C:\\Users\\barath\\recomart-pipeline\\data\\bronze\\dummyjson\\categories.parquet"
+    },
+    "overall_status": "FAIL",
+    "issues_file": "C:\\Users\\barath\\recomart-pipeline\\reports\\validation\\validation_issues_initial_20260429T075431Z.csv",
+    "summary_file": "C:\\Users\\barath\\recomart-pipeline\\reports\\validation\\validation_summary_initial_20260429T075431Z.csv",
+    "datasets": [
+      {
+        "phase": "initial",
+        "dataset": "retailrocket_events",
+        "rows": 2756101,
+        "columns": 5,
+        "errors": 0,
+        "warnings": 2734104,
+        "status": "PASS"
+      },
+      {
+        "phase": "initial",
+        "dataset": "retailrocket_category_tree",
+        "rows": 1669,
+        "columns": 2,
+        "errors": 0,
+        "warnings": 25,
+        "status": "PASS"
+      },
+      {
+        "phase": "initial",
+        "dataset": "retailrocket_item_properties",
+        "rows": 20275902,
+        "columns": 4,
+        "errors": 0,
+        "warnings": 0,
+        "status": "PASS"
+      },
+      {
+        "phase": "initial",
+        "dataset": "dummyjson_products_raw",
+        "rows": 194,
+        "columns": 27,
+        "errors": 0,
+        "warnings": 92,
+        "status": "PASS"
+      },
+      {
+        "phase": "initial",
+        "dataset": "dummyjson_categories_raw",
+        "rows": 24,
+        "columns": 3,
+        "errors": 1,
+        "warnings": 0,
+        "status": "FAIL"
+      },
+      {
+        "phase": "initial",
+        "dataset": "products_parquet",
+        "rows": 194,
+        "columns": 32,
+        "errors": 0,
+        "warnings": 0,
+        "status": "PASS"
+      },
+      {
+        "phase": "initial",
+        "dataset": "categories_parquet",
+        "rows": 24,
+        "columns": 8,
+        "errors": 0,
+        "warnings": 0,
+        "status": "PASS"
+      }
+    ]
+  },
+  "revalidation": {
+    "run_id": "20260429T075431Z",
+    "run_ts": "2026-04-29T07:54:31.997715+00:00",
+    "phase": "revalidated",
+    "remediated_raw_root": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\raw",
+    "remediated_bronze_root": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\bronze",
+    "discovered_files": {
+      "events_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\raw\\events.csv",
+      "category_tree_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\raw\\category_tree.csv",
+      "item_properties_part1_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\raw\\item_properties_part1.csv",
+      "item_properties_part2_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\raw\\item_properties_part2.csv",
+      "products_raw_json": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\raw\\products_raw.json",
+      "categories_raw_json": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\raw\\categories_raw.json",
+      "products_parquet": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\bronze\\products.parquet",
+      "categories_parquet": "C:\\Users\\barath\\recomart-pipeline\\data\\remediated\\bronze\\categories.parquet"
+    },
+    "overall_status": "PASS",
+    "issues_file": "C:\\Users\\barath\\recomart-pipeline\\reports\\validation\\validation_issues_revalidated_20260429T075431Z.csv",
+    "summary_file": "C:\\Users\\barath\\recomart-pipeline\\reports\\validation\\validation_summary_revalidated_20260429T075431Z.csv",
+    "fix_log_file": "C:\\Users\\barath\\recomart-pipeline\\reports\\validation\\fix_log_20260429T075431Z.csv",
+    "datasets": [
+      {
+        "phase": "revalidated",
+        "dataset": "retailrocket_events",
+        "rows": 2755641,
+        "columns": 5,
+        "errors": 0,
+        "warnings": 2733184,
+        "status": "PASS"
+      },
+      {
+        "phase": "revalidated",
+        "dataset": "retailrocket_category_tree",
+        "rows": 1669,
+        "columns": 2,
+        "errors": 0,
+        "warnings": 25,
+        "status": "PASS"
+      },
+      {
+        "phase": "revalidated",
+        "dataset": "retailrocket_item_properties",
+        "rows": 20275902,
+        "columns": 4,
+        "errors": 0,
+        "warnings": 0,
+        "status": "PASS"
+      },
+      {
+        "phase": "revalidated",
+        "dataset": "dummyjson_products_raw",
+        "rows": 194,
+        "columns": 27,
+        "errors": 0,
+        "warnings": 92,
+        "status": "PASS"
+      },
+      {
+        "phase": "revalidated",
+        "dataset": "dummyjson_categories_raw",
+        "rows": 0,
+        "columns": 1,
+        "errors": 0,
+        "warnings": 0,
+        "status": "PASS"
+      },
+      {
+        "phase": "revalidated",
+        "dataset": "products_parquet",
+        "rows": 194,
+        "columns": 32,
+        "errors": 0,
+        "warnings": 0,
+        "status": "PASS"
+      },
+      {
+        "phase": "revalidated",
+        "dataset": "categories_parquet",
+        "rows": 24,
+        "columns": 8,
+        "errors": 0,
+        "warnings": 0,
+        "status": "PASS"
+      }
+    ]
+  },
+  "pdf_report_file": "C:\\Users\\barath\\recomart-pipeline\\reports\\validation\\data_quality_report_20260429T075431Z.pdf"
+}

@@ -1,5 +1,0 @@
-dataset,rows,columns,errors,warnings,status
-retailrocket_events,2756101,5,0,2734104,PASS
-retailrocket_category_tree,1669,2,0,25,PASS
-dummyjson_products_raw,194,27,0,92,PASS
-dummyjson_categories_raw,24,3,0,0,PASS

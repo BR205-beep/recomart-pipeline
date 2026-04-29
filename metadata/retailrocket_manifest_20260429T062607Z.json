@@ -1,0 +1,37 @@
+{
+  "source": "retailrocket",
+  "dataset_id": "retailrocket/ecommerce-dataset",
+  "batch_id": "20260429T062607Z",
+  "ingestion_ts": "2026-04-29T06:26:07.332201+00:00",
+  "raw_output_dir": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=06",
+  "files": [
+    {
+      "file_name": "events.csv",
+      "source_path": "C:\\Users\\barath\\.cache\\kagglehub\\datasets\\retailrocket\\ecommerce-dataset\\versions\\2\\events.csv",
+      "raw_path": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=06\\events.csv",
+      "copied_at": "2026-04-29T06:26:11.130962+00:00",
+      "file_size_bytes": 94237913
+    },
+    {
+      "file_name": "category_tree.csv",
+      "source_path": "C:\\Users\\barath\\.cache\\kagglehub\\datasets\\retailrocket\\ecommerce-dataset\\versions\\2\\category_tree.csv",
+      "raw_path": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=06\\category_tree.csv",
+      "copied_at": "2026-04-29T06:26:11.138285+00:00",
+      "file_size_bytes": 14454
+    },
+    {
+      "file_name": "item_properties_part1.csv",
+      "source_path": "C:\\Users\\barath\\.cache\\kagglehub\\datasets\\retailrocket\\ecommerce-dataset\\versions\\2\\item_properties_part1.csv",
+      "raw_path": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=06\\item_properties_part1.csv",
+      "copied_at": "2026-04-29T06:26:11.995217+00:00",
+      "file_size_bytes": 484315749
+    },
+    {
+      "file_name": "item_properties_part2.csv",
+      "source_path": "C:\\Users\\barath\\.cache\\kagglehub\\datasets\\retailrocket\\ecommerce-dataset\\versions\\2\\item_properties_part2.csv",
+      "raw_path": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=06\\item_properties_part2.csv",
+      "copied_at": "2026-04-29T06:26:12.789174+00:00",
+      "file_size_bytes": 408929907
+    }
+  ]
+}

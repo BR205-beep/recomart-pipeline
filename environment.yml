@@ -1,0 +1,32 @@
+name: dm4ml
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - jupyter
+  - notebook
+  - ipykernel
+  - pyarrow
+  - reportlab
+  - pip:
+      - mlflow
+      - prefect
+      - papermill
+      - kagglehub
+
+
+
+# run these
+conda env create -f environment.yml
+conda activate dm4ml
+python -m ipykernel install --user --name dm4ml --display-name "Python (dm4ml)"
+python -m pip install mlflow
+python -m pip install mlflow ipykernel
+python -m ipykernel install --user --name dm4ml --display-name "Python (dm4ml)"

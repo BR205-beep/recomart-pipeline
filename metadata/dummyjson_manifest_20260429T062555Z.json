@@ -1,0 +1,29 @@
+{
+  "source": "dummyjson",
+  "batch_id": "20260429T062555Z",
+  "ingestion_ts": "2026-04-29T06:25:55.987392+00:00",
+  "raw_output_dir": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\dummyjson\\load_date=2026-04-29\\load_hour=06",
+  "bronze_output_dir": "C:\\Users\\barath\\recomart-pipeline\\data\\bronze\\dummyjson",
+  "files": [
+    {
+      "file_name": "products_raw.json",
+      "raw_path": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\dummyjson\\load_date=2026-04-29\\load_hour=06\\products_raw.json",
+      "record_count": 194,
+      "source_mode": "api",
+      "saved_at": "2026-04-29T06:26:05.676610+00:00"
+    },
+    {
+      "file_name": "categories_raw.json",
+      "raw_path": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\dummyjson\\load_date=2026-04-29\\load_hour=06\\categories_raw.json",
+      "record_count": 24,
+      "source_mode": "api",
+      "saved_at": "2026-04-29T06:26:05.676654+00:00"
+    }
+  ],
+  "bronze_outputs": [
+    "C:\\Users\\barath\\recomart-pipeline\\data\\bronze\\dummyjson\\products.parquet",
+    "C:\\Users\\barath\\recomart-pipeline\\data\\bronze\\dummyjson\\categories.parquet",
+    "C:\\Users\\barath\\recomart-pipeline\\data\\bronze\\dummyjson\\ingestion_summary.csv"
+  ],
+  "source_mode": "api"
+}
