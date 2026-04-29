@@ -1,0 +1,93 @@
+{
+  "project": "RecoMart Feature Store",
+  "store_type": "custom_metadata_registry",
+  "version": "v1",
+  "created_ts": "2026-04-29T16:46:23Z",
+  "entities": [
+    "user_id",
+    "item_id"
+  ],
+  "offline_store": {
+    "type": "sqlite",
+    "path": "feature_store\\offline_store\\feature_store.db"
+  },
+  "registry": {
+    "metadata_csv": "feature_store\\registry\\feature_metadata.csv",
+    "metadata_json": "feature_store\\registry\\feature_metadata.json"
+  },
+  "feature_views": [
+    {
+      "name": "user_features",
+      "version": "v1",
+      "entities": [
+        "user_id"
+      ],
+      "source_path": "data\\transformed\\user_features.csv",
+      "feature_count": 4,
+      "features": [
+        "activity_frequency",
+        "unique_items_interacted",
+        "avg_interaction_weight",
+        "avg_rating_per_user"
+      ],
+      "online_enabled": true,
+      "offline_enabled": true
+    },
+    {
+      "name": "item_features",
+      "version": "v1",
+      "entities": [
+        "item_id"
+      ],
+      "source_path": "data\\transformed\\item_features.csv",
+      "feature_count": 8,
+      "features": [
+        "item_interaction_count",
+        "unique_users",
+        "avg_interaction_weight",
+        "avg_rating_per_item",
+        "title",
+        "category",
+        "price",
+        "price_norm"
+      ],
+      "online_enabled": true,
+      "offline_enabled": true
+    },
+    {
+      "name": "user_item_features",
+      "version": "v1",
+      "entities": [
+        "user_id",
+        "item_id"
+      ],
+      "source_path": "data\\transformed\\user_item_features.csv",
+      "feature_count": 6,
+      "features": [
+        "interaction_count",
+        "total_interaction_weight",
+        "last_event_ts",
+        "addtocart",
+        "transaction",
+        "view"
+      ],
+      "online_enabled": true,
+      "offline_enabled": true
+    },
+    {
+      "name": "item_cooccurrence",
+      "version": "v1",
+      "entities": [
+        "item_id_a",
+        "item_id_b"
+      ],
+      "source_path": "data\\transformed\\item_cooccurrence.csv",
+      "feature_count": 1,
+      "features": [
+        "cooccurrence_count"
+      ],
+      "online_enabled": true,
+      "offline_enabled": true
+    }
+  ]
+}

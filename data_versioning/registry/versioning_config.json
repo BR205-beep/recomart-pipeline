@@ -1,0 +1,38 @@
+{
+  "project": "RecoMart Data Versioning and Lineage",
+  "created_ts": "2026-04-29T17:03:15.268474+00:00",
+  "registry_csv": "data_versioning\\registry\\dataset_lineage_registry.csv",
+  "registry_json": "data_versioning\\registry\\dataset_lineage_registry.json",
+  "workflow_doc": "data_versioning\\docs\\versioning_workflow.md",
+  "git": {
+    "head_ref": "refs/heads/main",
+    "commit_hash": "5ce2fe6dbb26109f4dfdc645cb4392aff8253e64"
+  },
+  "dvc_pointer_files": [
+    {
+      "dvc_file": "data\\prepared.dvc",
+      "outs_path": "prepared",
+      "md5": null,
+      "size": "329"
+    },
+    {
+      "dvc_file": "data\\raw.dvc",
+      "outs_path": "raw",
+      "md5": null,
+      "size": "446229"
+    },
+    {
+      "dvc_file": "models.dvc",
+      "outs_path": "models",
+      "md5": null,
+      "size": "0"
+    }
+  ],
+  "dataset_counts": {
+    "remediated": 8,
+    "bronze": 7,
+    "prepared": 7,
+    "raw": 6,
+    "transformed": 4
+  }
+}
