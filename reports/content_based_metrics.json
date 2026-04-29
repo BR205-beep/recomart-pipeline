@@ -1,0 +1,15 @@
+{
+  "precision_at_5": 0.0,
+  "recall_at_5": 0.0,
+  "ndcg_at_5": 0.0,
+  "evaluated_users_at_5": 3,
+  "precision_at_10": 0.0,
+  "recall_at_10": 0.0,
+  "ndcg_at_10": 0.0,
+  "evaluated_users_at_10": 3,
+  "runtime_minutes": 0.4301956494649251,
+  "catalog_size_used": 92,
+  "feature_vocab_size": 557,
+  "overlap_items": 92,
+  "eligible_users": 3
+}

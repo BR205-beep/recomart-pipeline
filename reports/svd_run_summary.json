@@ -1,0 +1,35 @@
+{
+  "file_path": "C:\\Users\\barath\\recomart-pipeline\\data\\prepared\\interactions_prepared.csv",
+  "train_shape": [
+    27619,
+    4
+  ],
+  "test_shape": [
+    3204,
+    3
+  ],
+  "user_item_shape": [
+    3204,
+    777
+  ],
+  "sample_user": 761633,
+  "sample_top5_recommendations": [
+    257040,
+    241555,
+    409804,
+    315543,
+    439963
+  ],
+  "metrics": {
+    "precision_at_5": 0.01691635511815548,
+    "recall_at_5": 0.08458177000284195,
+    "ndcg_at_5": 0.05619530505481732,
+    "evaluated_users_at_5": 3204,
+    "precision_at_10": 0.012172284536063671,
+    "recall_at_10": 0.12172284722328186,
+    "ndcg_at_10": 0.0681703069735919,
+    "evaluated_users_at_10": 3204,
+    "explained_variance_ratio_sum": 0.4889718294143677,
+    "runtime_minutes": 0.07653891642888387
+  }
+}

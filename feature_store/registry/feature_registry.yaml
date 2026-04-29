@@ -13,6 +13,10 @@ entities:
     join_key: item_id
     description: Unique product/item identifier from interaction logs or metadata
 
+  - name: user_item
+    join_keys: [user_id, item_id]
+    description: Composite user-item key for pairwise interaction features
+
 feature_sets:
   - name: user_features
     entity: user
@@ -131,29 +135,29 @@ feature_sets:
         freshness: daily
 
   - name: interaction_features
-    entity: user
+    entity: user_item
     version: v1
     source_table: interactions_prepared.csv
     storage_path: data/featured/v1/interaction_features.parquet
     serving_modes: [training]
     features:
-      - name: user_item_event_weight_sum
-        dtype: float
-        source_column: event_weight
-        transformation: sum event_weight grouped by user_id and item_id
-        freshness: daily
+    - name: user_item_event_weight_sum
+      dtype: float
+      source_column: event_weight
+      transformation: sum event_weight grouped by user_id and item_id
+      freshness: daily
 
-      - name: user_item_interaction_count
-        dtype: int
-        source_column: item_id
-        transformation: count of interactions grouped by user_id and item_id
-        freshness: daily
+    - name: user_item_interaction_count
+      dtype: int
+      source_column: item_id
+      transformation: count of interactions grouped by user_id and item_id
+      freshness: daily
 
-      - name: user_item_last_event_recency_days
-        dtype: float
-        source_column: event_ts
-        transformation: days since latest interaction for user-item pair
-        freshness: daily
+    - name: user_item_last_event_recency_days
+      dtype: float
+      source_column: event_ts
+      transformation: days since latest interaction for user-item pair
+      freshness: daily
 
 governance:
   owner: recomart_data_platform

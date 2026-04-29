@@ -1,0 +1,47 @@
+{
+  "input_files": {
+    "interactions": "C:\\Users\\barath\\recomart-pipeline\\data\\prepared\\interactions_prepared.csv",
+    "products": "C:\\Users\\barath\\recomart-pipeline\\data\\prepared\\products_prepared.csv"
+  },
+  "product_id_column": "product_id",
+  "text_columns_used": [
+    "title",
+    "category",
+    "brand"
+  ],
+  "train_shape": [
+    4,
+    4
+  ],
+  "test_shape": [
+    3,
+    3
+  ],
+  "tfidf_shape": [
+    92,
+    557
+  ],
+  "sample_user": "1150086",
+  "sample_top5_recommendations": [
+    "26",
+    "16",
+    "33",
+    "32",
+    "40"
+  ],
+  "metrics": {
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "ndcg_at_5": 0.0,
+    "evaluated_users_at_5": 3,
+    "precision_at_10": 0.0,
+    "recall_at_10": 0.0,
+    "ndcg_at_10": 0.0,
+    "evaluated_users_at_10": 3,
+    "runtime_minutes": 0.4301956494649251,
+    "catalog_size_used": 92,
+    "feature_vocab_size": 557,
+    "overlap_items": 92,
+    "eligible_users": 3
+  }
+}
