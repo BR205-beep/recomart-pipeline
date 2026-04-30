@@ -1,0 +1,54 @@
+{
+  "project_root": "C:\\Users\\barath\\recomart-pipeline",
+  "orchestration_files": [],
+  "log_files": [
+    {
+      "file_name": "validation_log_20260429T111342Z.jsonl",
+      "relative_path": "logs\\validation_log_20260429T111342Z.jsonl",
+      "last_modified": "2026-04-29 16:47:44",
+      "size_kb": 0.66
+    },
+    {
+      "file_name": "validation_log_20260429T104144Z.jsonl",
+      "relative_path": "logs\\validation_log_20260429T104144Z.jsonl",
+      "last_modified": "2026-04-29 16:14:02",
+      "size_kb": 0.66
+    },
+    {
+      "file_name": "validation_log_20260429T085045Z.jsonl",
+      "relative_path": "logs\\validation_log_20260429T085045Z.jsonl",
+      "last_modified": "2026-04-29 14:22:57",
+      "size_kb": 0.66
+    },
+    {
+      "file_name": "validation_log_20260429T084831Z.jsonl",
+      "relative_path": "logs\\validation_log_20260429T084831Z.jsonl",
+      "last_modified": "2026-04-29 14:19:00",
+      "size_kb": 0.33
+    },
+    {
+      "file_name": "validation_log_20260429T075431Z.jsonl",
+      "relative_path": "logs\\validation_log_20260429T075431Z.jsonl",
+      "last_modified": "2026-04-29 13:27:07",
+      "size_kb": 0.66
+    },
+    {
+      "file_name": "validation_log_20260429T065004Z.jsonl",
+      "relative_path": "logs\\validation_log_20260429T065004Z.jsonl",
+      "last_modified": "2026-04-29 12:23:00",
+      "size_kb": 0.66
+    },
+    {
+      "file_name": "validation_log_20260429T062845Z.jsonl",
+      "relative_path": "logs\\validation_log_20260429T062845Z.jsonl",
+      "last_modified": "2026-04-29 12:02:19",
+      "size_kb": 0.66
+    },
+    {
+      "file_name": "run_validation.txt",
+      "relative_path": "src\\02-validation\\run_validation.txt",
+      "last_modified": "2026-04-28 20:14:12",
+      "size_kb": 46.94
+    }
+  ]
+}
