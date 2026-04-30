@@ -8,5 +8,5 @@
   "ndcg_at_10": 0.0681703069735919,
   "evaluated_users_at_10": 3204,
   "explained_variance_ratio_sum": 0.4889717698097229,
-  "runtime_minutes": 0.08895316123962402
+  "runtime_minutes": 0.10053523381551106
 }

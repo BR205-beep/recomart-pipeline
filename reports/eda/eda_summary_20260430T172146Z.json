@@ -1,0 +1,33 @@
+{
+  "run_ts": "20260430T172146Z",
+  "project_root": "C:\\Users\\barath\\recomart-pipeline",
+  "raw_files": {
+    "events_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=11\\events.csv",
+    "category_tree_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=11\\category_tree.csv",
+    "item_properties_part1_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=11\\item_properties_part1.csv",
+    "item_properties_part2_csv": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\retailrocket\\load_date=2026-04-29\\load_hour=11\\item_properties_part2.csv",
+    "products_raw_json": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\dummyjson\\load_date=2026-04-30\\load_hour=17\\products_raw.json",
+    "categories_raw_json": "C:\\Users\\barath\\recomart-pipeline\\data\\raw\\dummyjson\\load_date=2026-04-30\\load_hour=17\\categories_raw.json"
+  },
+  "prepared_outputs": {
+    "interactions_prepared": "C:\\Users\\barath\\recomart-pipeline\\data\\prepared\\interactions_prepared.csv",
+    "item_snapshot": "C:\\Users\\barath\\recomart-pipeline\\data\\prepared\\retailrocket_item_snapshot.csv",
+    "products_prepared": "C:\\Users\\barath\\recomart-pipeline\\data\\prepared\\products_prepared.csv",
+    "categories_prepared": "C:\\Users\\barath\\recomart-pipeline\\data\\prepared\\categories_prepared.csv",
+    "raw_validation_issues": "C:\\Users\\barath\\recomart-pipeline\\data\\quality\\raw_validation_issues_20260430T172146Z.csv",
+    "raw_validation_summary": "C:\\Users\\barath\\recomart-pipeline\\data\\quality\\raw_validation_summary_20260430T172146Z.csv",
+    "prepared_validation_issues": "C:\\Users\\barath\\recomart-pipeline\\data\\quality\\prepared_validation_issues_20260430T172146Z.csv",
+    "prepared_validation_summary": "C:\\Users\\barath\\recomart-pipeline\\data\\quality\\prepared_validation_summary_20260430T172146Z.csv",
+    "eda_summary_json": "C:\\Users\\barath\\recomart-pipeline\\reports\\eda\\eda_summary_20260430T172146Z.json"
+  },
+  "metrics": {
+    "interaction_rows": 2755641,
+    "unique_users": 1407580,
+    "unique_items": 235061,
+    "product_rows": 194,
+    "category_rows": 24,
+    "unique_categories": 24,
+    "sample_sparsity": 0.7236363636363636,
+    "quarantined_bad_transaction_rows": 0
+  }
+}

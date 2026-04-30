@@ -12,40 +12,42 @@ dependencies:
   - ipykernel
 
   # Core data stack
-  - pandas=2.2.*
-  - numpy=1.26.*
-  - scipy=1.13.*
-  - scikit-learn=1.5.*
-  - pyarrow=16.*
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  - pyarrow
   - fastparquet
 
   # Visualization / EDA
-  - matplotlib=3.8.*
-  - seaborn=0.13.*
+  - matplotlib
+  - seaborn
 
   # File / API handling
-  - requests=2.32.*
-  - pyyaml=6.0.*
-  - tqdm=4.66.*
+  - requests
+  - pyyaml
+  - tqdm
 
   # Reporting
-  - reportlab=4.2.*
+  - reportlab
 
   # Optional but useful
-  - openpyxl=3.1.*
-  - python-dotenv=1.0.*
+  - openpyxl
+  - python-dotenv
 
   - pip:
       # Orchestration
-      - prefect==2.19.5
+      - prefect
 
       # Experiment tracking / versioning
-      - mlflow==2.14.3
-      - dvc==3.51.2
+      - mlflow
+      - dvc
+      - papermill
+      - kagglehub
 
       # Nice-to-have for notebook stability
-      - nbformat==5.10.4
-      - nbclient==0.10.0
+      - nbformat
+      - nbclient
 
 
 
